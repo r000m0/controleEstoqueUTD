@@ -1,0 +1,14 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-4 text-gray-800"> Editando <?=$category[0]['categoria']?> </h1>
+
+<form class="user" action="<?=$GLOBALS['project_index'];?>/controllers/categories.php" method="POST">
+	<input type="hidden" name="action" value="edit">
+	<input type="hidden" name="codCategoria" value="<?=$category[0]['codCategoria']?>">
+	<div class="row">
+		<div class="form-group col-md-6">
+			<label> Nome da categoria </label>
+		    <input type="text" class="form-control form-control-user" name="categoria" placeholder="Categoria do produto" value="<?=$category[0]['categoria']?>"><br>
+			<button class="btn btn-primary"><i class="fa fa-arrow-right"></i> Enviar </button>
+		</div>
+	</div>
+</form>

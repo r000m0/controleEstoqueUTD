@@ -1,0 +1,32 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-4 text-gray-800"> Editando <?=$user[0]['usuarioNome'];?> </h1>
+
+<form class="user" action="<?=$GLOBALS['project_index'];?>/controllers/users.php" method="POST">
+	<input type="hidden" name="action" value="edit">
+	<input type="hidden" name="idUsuario" value="<?=$user[0]['idUsuario'];?>">
+	<div class="row">
+		<div class="form-group col-md-6">
+			<label> Nome Completo </label>
+		    <input type="text" class="form-control form-control-user" name="usuarioNome" placeholder="Nome" value="<?=$user[0]['usuarioNome'];?>">
+		</div>
+		
+		<div class="form-group col-md-6">
+			<label> CPF </label>
+		    <input type="text" class="form-control form-control-user" name="usuarioCPF" placeholder="CPF" value="<?=$user[0]['usuarioCPF'];?>">
+		</div>
+
+		<div class="form-group col-md-6">
+			<label> Email </label>
+		    <input type="email" class="form-control form-control-user" name="usuarioEmail" placeholder="Email" value="<?=$user[0]['usuarioEmail'];?>">
+		</div>
+
+		<div class="form-group col-md-6">
+			<label> Senha </label>
+		    <input type="password" class="form-control form-control-user" name="usuarioSenha" placeholder="Preecha se for alterar">
+		</div>
+
+		<div class="form-group col-md-6">
+			<button class="btn btn-warning"><i class="fa fa-arrow-right"></i> Enviar </button>
+		</div>
+	</div>
+</form>

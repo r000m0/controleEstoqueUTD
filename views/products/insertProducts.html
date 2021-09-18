@@ -1,0 +1,64 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-4 text-gray-800"> Inserção de Produtos </h1>
+
+<form class="user" action="<?=$GLOBALS['project_index'];?>/controllers/products.php" method="POST">
+	<input type="hidden" name="action" value="add">
+	<div class="row">
+		
+		<div class="form-group col-md-6">
+			<label> Categoria </label>
+			<select name="categoriaCod" class="form-control form-control-user" required>
+				<option disabled selected>-- Selecione a categoria --</option>
+				<?php
+					$managerCat = new Manager();
+					$cat = $managerCat->select_common('categorias',null,null,null);
+					foreach ($cat as $key => $value) {
+						echo '<option value="'.$value['codCategoria'].'">'.$value['categoria'].'</option>';
+					}
+				?>
+			</select>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label> Fornecedor </label>
+			<select name="fornecedorCod" class="form-control form-control-user" required>
+				<option disabled selected>-- Selecione o fornecedor --</option>
+				<?php
+					$managerForn = new Manager();
+					$forn = $managerForn->select_common('fornecedores',null,null,null);
+					foreach ($forn as $key => $value) {
+						echo '<option value="'.$value['codFornecedor'].'">'.$value['fornecedor'].'</option>';
+					}
+				?>
+			</select>
+		</div>
+
+
+
+
+		<div class="form-group col-md-6">
+			<label> Descrição do produto </label>
+		    <input type="text" class="form-control form-control-user" name="produtoDescricao" placeholder="Produto">
+		</div>
+
+
+
+
+		<div class="form-group col-md-3">
+			<label> Peso do produto </label>
+		    <input type="number" step="0.1" min="0.1" class="form-control form-control-user" name="produtoPeso" placeholder="peso">
+		</div>
+
+		<div class="form-group col-md-3">
+			<label> Quantidade mínima em estoque </label>
+		    <input type="number" min="1" class="form-control form-control-user" name="produtoQtemin" placeholder="Qte mínima">
+		</div>
+
+		<div class="form-group col-md-6">
+			<button class="btn btn-primary"><i class="fa fa-arrow-right"></i> Enviar </button>
+		</div>
+	</div>
+
+
+
+</form>
